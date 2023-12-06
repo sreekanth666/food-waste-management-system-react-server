@@ -48,7 +48,7 @@ router.delete('/requests/food/delete/:id', jwtMiddleWare, requestController.dele
 router.delete('/requests/waste/delete/:id', jwtMiddleWare, requestController.deleteWasteRequest)
 
 // Edit user details
-router.patch('/user/edit/', jwtMiddleWare, usersController.editUserDetails)
+router.patch('/user/edit', jwtMiddleWare, usersController.editUserDetails)
 
 // Change password
 router.patch('/user/change/password/', jwtMiddleWare, usersController.changePassword)

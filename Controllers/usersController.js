@@ -51,14 +51,14 @@ exports.login = async(req, res) => {
 
 // Logic to resolve profile edit request
 exports.editUserDetails = async(req, res) => {
-    const {type} = req.params
-    const {id, username, phone, email, city, district, state, pincode, attribute} = req.body
+    const {id, username, phone, email, address, city, district, state, pincode, attribute} = req.body
         try {
             const editUserDetails = await users.findByIdAndUpdate({"_id":id}, {
                 $set : {
                     username,
                     phone,
                     email,
+                    address,
                     city,
                     district,
                     state,
