@@ -2,6 +2,7 @@ const express = require('express')
 const router = new express.Router()
 const usersController = require('../Controllers/usersController')
 const requestController = require('../Controllers/requestController')
+const otpController = require('../Controllers/otpController')
 const jwtMiddleWare = require('../Middlewares/jwtMiddleware')
 
 // User registration API
@@ -51,5 +52,8 @@ router.patch('/user/edit/', jwtMiddleWare, usersController.editUserDetails)
 
 // Change password
 router.patch('/user/change/password/', jwtMiddleWare, usersController.changePassword)
+
+// OTP service
+router.post('/user/password/change/', jwtMiddleWare, otpController.otpGenerator)
 
 module.exports = router
