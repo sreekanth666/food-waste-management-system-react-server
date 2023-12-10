@@ -1,11 +1,13 @@
 const nodemailer = require('nodemailer')
 const otpGenerator = require('otp-generator')
+const email = process.env.EMAIL
+const password = process.env.PASSWORD
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: "srkth777@gmail.com",
-        pass: "ruimwbkpordxbazv"
+        user: email,
+        pass: password
     }
 })
 
@@ -36,7 +38,7 @@ exports.otpGenerator = async(req, res) => {
     </html>`
 
     const mailOptions = {
-        from: "srkth777@gmail.com",
+        from: email,
         to: email,
         subject: `OTP for changing password ${otp}`,
         text: `OTP for changing password: ${otp}`,

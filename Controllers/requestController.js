@@ -1,6 +1,8 @@
 const foodRequests = require("../Models/foodRequestSchema")
 const wasteRequests = require("../Models/wasteRequestSchema")
 const nodemailer = require('nodemailer')
+const email = process.env.EMAIL
+const password = process.env.PASSWORD
 
 // Create food requests
 exports.createFoodRequest = async(req, res) => {
@@ -135,8 +137,8 @@ exports.entireRequests = async(req, res) => {
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: "srkth777@gmail.com",
-        pass: "ruimwbkpordxbazv"
+        user: email,
+        pass: password
     }
 })
 exports.acceptRequest = async(req, res) => {
