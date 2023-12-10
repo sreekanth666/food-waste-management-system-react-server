@@ -12,7 +12,6 @@ const transporter = nodemailer.createTransport({
 exports.otpGenerator = async(req, res) => {
     const otp = otpGenerator.generate(6, {lowerCaseAlphabets: false, specialChars:false})
     const {email} = req.body
-    console.log(email);
     const html = `<!DOCTYPE html>
     <html lang="en">
     <head>

@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 
 // Logic for resolving register request
 exports.register = async(req, res) => {
-    // console.log("Inside register controller function");
     const{username, phone, email, password, address, city, district, state, pincode, attribute} = req.body
     try {
         const isUserExists = await users.findOne({email})
@@ -75,8 +74,6 @@ exports.editUserDetails = async(req, res) => {
 // Change password
 exports.changePassword = async(req, res) => {
     const {id, password} = req.body
-    console.log(id);
-    console.log(password);
     try {
         const changePassword = await users.findByIdAndUpdate({"_id":id}, {
             $set: {

@@ -234,7 +234,6 @@ exports.acceptRequest = async(req, res) => {
                 html
             }
             const emailStatus = await transporter.sendMail(mailOptions)
-            console.log(emailStatus.response);
             res.status(200).json(updateFoodRequest)
         } catch (error) {
             res.status(401).json(error)
@@ -264,7 +263,6 @@ exports.acceptRequest = async(req, res) => {
                 html
             }
             const emailStatus = await transporter.sendMail(mailOptions)
-            console.log(emailStatus.response);
 
             res.status(200).json(updateWasteRequest)
         } catch (error) {
@@ -277,9 +275,6 @@ exports.acceptRequest = async(req, res) => {
 exports.updateDeliveryStatus = async(req, res) => {
     const {id} = req.params
     const {status, type} = req.body
-    console.log(id);
-    console.log(status);
-    console.log(type);
     if (type === 'food') {
         try {
             const updateReqStatus = await foodRequests.findByIdAndUpdate({"_id":id}, {
